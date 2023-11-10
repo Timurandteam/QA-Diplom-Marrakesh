@@ -137,7 +137,7 @@ public class StatusTest {
 
     // в месяце символ
     @Test
-    public void simbolMonth() {
+    public void symbolMonth() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
         var form = new Paymentpage();
