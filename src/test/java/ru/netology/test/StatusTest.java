@@ -3,7 +3,7 @@ package ru.netology.test;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import data.DataHelper;
 import data.SQLHelper;
-//import lombok.var;
+
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 import page.Paymentpage;
