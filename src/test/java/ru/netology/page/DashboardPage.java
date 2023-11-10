@@ -1,6 +1,6 @@
 package ru.netology.page;
 
-import data.DataHelper;
+import ru.netology.data.DataHelper;
 
 import static com.codeborne.selenide.Condition.visible;
 

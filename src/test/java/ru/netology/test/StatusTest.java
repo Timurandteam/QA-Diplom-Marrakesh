@@ -1,16 +1,16 @@
 package ru.netology.test;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
-import data.DataHelper;
-import data.SQLHelper;
+import ru.netology.data.DataHelper;
+import ru.netology.data.SQLHelper;
 
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
-import page.Paymentpage;
-import page.Purchasepage;
+import ru.netology.page.Paymentpage;
+import ru.netology.page.Purchasepage;
 
 import static com.codeborne.selenide.Selenide.open;
-import static data.DataHelper.*;
+import static ru.netology.data.DataHelper.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class StatusTest {
