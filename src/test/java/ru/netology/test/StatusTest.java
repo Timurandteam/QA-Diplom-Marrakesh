@@ -136,7 +136,7 @@ public class StatusTest {
 
     // в месяце символ
     @Test
-    public void simbolMonth() {
+    public void SymbolMonth() {
         var PurchasePage = new PurchasePage();
         PurchasePage.BuyCard();
         var form = new PaymentPage();
@@ -210,13 +210,13 @@ public class StatusTest {
         var purchasepage = new PurchasePage();
         purchasepage.BuyCard();
         var form = new PaymentPage();
-        form.fillingOutTheForm(DataHelper.getYearSimbol());
+        form.fillingOutTheForm(DataHelper.getYearSymbol());
         form.yearNotValid();
     }
 
     // в поле года буква
     @Test
-    public void yearNotValidSimbol() {
+    public void yearNotValidSymbol() {
         var purchasepage = new PurchasePage();
         purchasepage.BuyCard();
         var form = new PaymentPage();
@@ -260,7 +260,7 @@ public class StatusTest {
         var purchasepage = new PurchasePage();
         purchasepage.BuyCard();
         var form = new PaymentPage();
-        form.fillingOutTheForm(DataHelper.getOnwerSimbol());
+        form.fillingOutTheForm(DataHelper.getOnwerSymbol());
         form.ownerNotValid();
     }
 
