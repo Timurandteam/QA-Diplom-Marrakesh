@@ -45,9 +45,9 @@ public class StatusTest {
     @Test
     @DisplayName("Should successful card payment declined")
     void theCardPaymentMustBeDeclined() {
-        var cardinfo = new DataHelper.CardInfo(getDeclinedCardNumber(), getValidMonth(), getValidYear(), getValidHolder(), getValidCodCvccvv());
+        var cardinfo = new DataHelper.CardInfo(getDeclinedCardNumber(), getValidMonth(), getValidYear(), getValidHolder(), getValidCodcvccvv());
         var purchasepage = new PurchasePage();
-        PurchasePage.BuyCreditCard();// купить в кредит
+        purchasepage.BuyCreditCard();// купить в кредит
         var form = new PaymentPage();
         form.fillingOutTheForm(cardinfo);
         form.declinedPayment();
