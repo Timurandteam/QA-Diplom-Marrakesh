@@ -33,9 +33,9 @@ public class StatusTest {
     @Test
     @DisplayName("Should successful card payment approved")
     void theCardPaymentMustBeApproved() {
-        var cardinfo = new DataHelper.CardInfo(getApprovedCardNumber(), getValidMonth(), getValidYear(), getValidHolder(), getValidCodcvccvv());
-        var PurchasePage = new PurchasePage();
-        PurchasePage.BuyCard();// купить
+        var cardinfo = new DataHelper.CardInfo(getApprovedCardNumber(), getValidMonth(), getValidYear(), getValidHolder(), getValidCodCvccvv());
+        var purchasepage = new PurchasePage();
+        purchasepage.BuyCard();// купить
         var form = new PaymentPage();
         form.fillingOutTheForm(cardinfo);
         form.paymentSuccessfull();
@@ -46,7 +46,7 @@ public class StatusTest {
     @DisplayName("Should successful card payment declined")
     void theCardPaymentMustBeDeclined() {
         var cardinfo = new DataHelper.CardInfo(getDeclinedCardNumber(), getValidMonth(), getValidYear(), getValidHolder(), getValidCodcvccvv());
-        var PurchasePage = new PurchasePage();
+        var purchasepage = new PurchasePage();
         PurchasePage.BuyCreditCard();// купить в кредит
         var form = new PaymentPage();
         form.fillingOutTheForm(cardinfo);
@@ -197,8 +197,8 @@ public class StatusTest {
     // год больше текущего на 10 лет
     @Test
     public void yearLongerThanTheCurrentObn() {
-        var PurchasePage = new PurchasePage();
-        PurchasePage.BuyCard();
+        var purchasepage = new PurchasePage();
+        purchasepage.BuyCard();
         var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getTheYearIs10YearsLongerThanTheCurrentOne());
         form.invalidCardExpirationDate();
@@ -207,8 +207,8 @@ public class StatusTest {
     // в поле года символ
     @Test
     public void yearNotValid() {
-        var PurchasePage = new PurchasePage();
-        PurchasePage.BuyCard();
+        var purchasepage = new PurchasePage();
+        purchasepage.BuyCard();
         var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getYearSimbol());
         form.yearNotValid();
@@ -217,8 +217,8 @@ public class StatusTest {
     // в поле года буква
     @Test
     public void yearNotValidSimbol() {
-        var PurchasePage = new PurchasePage();
-        PurchasePage.BuyCard();
+        var purchasepage = new PurchasePage();
+        purchasepage.BuyCard();
         var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getYearLetter());
         form.yearNotValid();
@@ -227,8 +227,8 @@ public class StatusTest {
     // в поле года один символ
     @Test
     public void yearNotValidOne() {
-        var PurchasePage = new PurchasePage();
-        PurchasePage.BuyCard();
+        var purchasepage = new PurchasePage();
+        purchasepage.BuyCard();
         var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getYearOne());
         form.yearNotValid();
@@ -237,8 +237,8 @@ public class StatusTest {
     // поле года не заполнено
     @Test
     public void yearNotValidEmpty() {
-        var PurchasePage = new PurchasePage();
-        PurchasePage.BuyCard();
+        var purchasepage = new PurchasePage();
+        purchasepage.BuyCard();
         var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getYearEmpty());
         form.yearNotValid();
@@ -247,8 +247,8 @@ public class StatusTest {
     // заполнение поля владелец кириллицей
     @Test
     public void thereMustBeAnErrorWhenEnteringTheOwnerInCyrillic() {
-        var PurchasePage = new PurchasePage();
-        PurchasePage.BuyCard();
+        var purchasepage = new PurchasePage();
+        purchasepage.BuyCard();
         var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getOwnerCyrillic());
         form.ownerNotValid();
@@ -257,8 +257,8 @@ public class StatusTest {
     // ввод в поле владелец символы
     @Test
     public void InTheOwnerFieldTheCharacters() {
-        var PurchasePage = new PurchasePage();
-        PurchasePage.BuyCard();
+        var purchasepage = new PurchasePage();
+        purchasepage.BuyCard();
         var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getOnwerSimbol());
         form.ownerNotValid();
@@ -267,8 +267,8 @@ public class StatusTest {
     // ввод в поле владелец цифры
     @Test
     public void InTheOwnerFieldDigit() {
-        var PurchasePage = new PurchasePage();
-        PurchasePage.BuyCard();
+        var purchasepage = new PurchasePage();
+        purchasepage.BuyCard();
         var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getOnwerFigure());
         form.ownerNotValid();
@@ -277,8 +277,8 @@ public class StatusTest {
     // Ввод в поле только одну букву
     @Test
     public void EnteringOnlyOneLetterInTheOwnerField() {
-        var PurchasePage = new PurchasePage();
-        PurchasePage.BuyCard();
+        var purchasepage = new PurchasePage();
+        purchasepage.BuyCard();
         var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getOnwerOneLetter());
         form.ownerNotValid();
@@ -287,8 +287,8 @@ public class StatusTest {
     // Ввод в поле более ста букв
     @Test
     public void EnteringMoreThan100CharactersInTheOwnerField() {
-        var PurchasePage = new PurchasePage();
-        PurchasePage.BuyCard();
+        var purchasepage = new PurchasePage();
+        purchasepage.BuyCard();
         var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getOnwerMoreThan100());
         form.ownerNotValid();
@@ -297,8 +297,8 @@ public class StatusTest {
     // Незаполненное поле владелец
     @Test
     public void TheOwnerFieldIsEmpty() {
-        var PurchasePage = new PurchasePage();
-        PurchasePage.BuyCard();
+        var purchasepage = new PurchasePage();
+        purchasepage.BuyCard();
         var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getOnwerEmpty());
         form.ownerNotValid();
@@ -307,8 +307,8 @@ public class StatusTest {
     // Ввод в поле CVCCVV символы
     @Test
     public void InTheCVCCVVFieldTheCharacters() {
-        var PurchasePage = new PurchasePage();
-        PurchasePage.BuyCard();
+        var purchasepage = new PurchasePage();
+        purchasepage.BuyCard();
         var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getCVCCVVSymbol());
         form.cvcNotValid();
@@ -317,8 +317,8 @@ public class StatusTest {
     // Ввод в поле CVCCVV буквы
     @Test
     public void InTheCVCCVVFieldTheLetters() {
-        var PurchasePage = new PurchasePage();
-        PurchasePage.BuyCard();
+        var purchasepage = new PurchasePage();
+        purchasepage.BuyCard();
         var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getCVCCVVLetter());
         form.cvcNotValid();
@@ -327,8 +327,8 @@ public class StatusTest {
     // Ввод в поле CVCCVV только одну цифру
     @Test
     public void ThereIsOnlyOneDigitInTheCVCCVVField() {
-        var PurchasePage = new PurchasePage();
-        PurchasePage.BuyCard();
+        var purchasepage = new PurchasePage();
+        purchasepage.BuyCard();
         var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getCVCCVVOneDigit());
         form.cvcNotValid();
@@ -337,8 +337,8 @@ public class StatusTest {
     // Ввод в поле CVCCVV только двух цифр
     @Test
     public void ThereIsOnlyTwoDigitInTheCVCCVVField() {
-        var PurchasePage = new PurchasePage();
-        PurchasePage.BuyCard();
+        var purchasepage = new PurchasePage();
+        purchasepage.BuyCard();
         var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getCVCCVVTwoDigit());
         form.cvcNotValid();
@@ -347,8 +347,8 @@ public class StatusTest {
     // Незаполненное поле CVCCVV
     @Test
     public void TheCVCCVVFieldIsEmpty() {
-        var PurchasePage = new PurchasePage();
-        PurchasePage.BuyCard();
+        var purchasepage = new PurchasePage();
+        purchasepage.BuyCard();
         var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getCVCCVVTwoDigit());
         form.cvcNotValid();
@@ -357,8 +357,8 @@ public class StatusTest {
     // Незаполненное поле CVCCVV
     @Test
     public void TheCVCCVVEqual000() {
-        var PurchasePage = new PurchasePage();
-        PurchasePage.BuyCard();
+        var purchasepage = new PurchasePage();
+        purchasepage.BuyCard();
         var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getCVCCVV000());
         form.cvcNotValid();
@@ -368,8 +368,8 @@ public class StatusTest {
     @Test
     @DisplayName("The form must be filled in")
     void theCardPaymentEmpty() {
-        var PurchasePage = new PurchasePage();
-        PurchasePage.BuyCard();// купить
+        var purchasepage = new PurchasePage();
+        purchasepage.BuyCard();// купить
         var form = new PaymentPage();
         form.emptyForm();
     }
