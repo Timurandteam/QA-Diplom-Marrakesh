@@ -181,7 +181,7 @@ public class DataHelper {
     // данные карты
     @Value
     public static class CardInfo {
-        String cardnumber;
+        String cardNumber;
         String month;
         String year;
         String holder;

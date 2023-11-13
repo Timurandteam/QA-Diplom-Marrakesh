@@ -32,7 +32,7 @@ public class StatusTest {
     }
 
     @Test
-    @DisplayName("Shuld successful card payment approved")
+    @DisplayName("Should successful card payment approved")
     void theCardPaymentMustBeApproved() {
         var cardinfo = new DataHelper.CardInfo(getApprovedCardNumber(), getValidMonth(), getValidYear(), getValidHolder(), getValidCodcvccvv());
         var purchasepage = new Purchasepage();
@@ -44,7 +44,7 @@ public class StatusTest {
     }
 
     @Test
-    @DisplayName("Shuld successful card payment declined")
+    @DisplayName("Should successful card payment declined")
     void theCardPaymentMustBeDeclined() {
         var cardinfo = new DataHelper.CardInfo(getDeclinedCardNumber(), getValidMonth(), getValidYear(), getValidHolder(), getValidCodcvccvv());
         var purchasepage = new Purchasepage();
@@ -192,7 +192,7 @@ public class StatusTest {
         purchasepage.BuyCard();
         var form = new Paymentpage();
         form.fillingOutTheForm(DataHelper.getYearLessThanTheCurrentOne());
-        form.theСardExpired();
+        form.theCardExpired();
     }
 
     // год больше текущего на 10 лет

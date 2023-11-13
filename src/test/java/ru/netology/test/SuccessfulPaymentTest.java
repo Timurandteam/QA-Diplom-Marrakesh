@@ -17,14 +17,14 @@ public class SuccessfulPaymentTest {
 
     @Test
     @DisplayName("the Buy form should open")
-    public void ShuldFormBuy() {
+    public void ShouldFormBuy() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
     }
 
     @Test
     @DisplayName("a credit purchase form should open")
-    public void ShuldFormBuyCredit() {
+    public void ShouldFormBuyCredit() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCreditCard();
     }
