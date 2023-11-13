@@ -130,23 +130,23 @@ public class DataHelper {
 
     // заполнение поля владелец не валидными символами
     public static CardInfo getOwnerCyrillic() {
-        return new CardInfo(getApprovedCardNumber(), getValidMonth(), getValidYear(), "Вася", getValidCodcvccvv());
+        return new CardInfo(getApprovedCardNumber(), getValidMonth(), getValidYear(), "ТИМУР", getValidCodcvccvv());
     }
 
     public static CardInfo getOnwerSimbol() {
-        return new CardInfo(getApprovedCardNumber(), getValidMonth(), getValidYear(), "Vas$ia", getValidCodcvccvv());
+        return new CardInfo(getApprovedCardNumber(), getValidMonth(), getValidYear(), "TIM$UR", getValidCodcvccvv());
     }
 
     public static CardInfo getOnwerFigure() {
-        return new CardInfo(getApprovedCardNumber(), getValidMonth(), getValidYear(), "Va1sia", getValidCodcvccvv());
+        return new CardInfo(getApprovedCardNumber(), getValidMonth(), getValidYear(), "TI6MUR", getValidCodcvccvv());
     }
 
     public static CardInfo getOnwerOneLetter() {
-        return new CardInfo(getApprovedCardNumber(), getValidMonth(), getValidYear(), "D", getValidCodcvccvv());
+        return new CardInfo(getApprovedCardNumber(), getValidMonth(), getValidYear(), "T", getValidCodcvccvv());
     }
 
     public static CardInfo getOnwerMoreThan100() {
-        return new CardInfo(getApprovedCardNumber(), getValidMonth(), getValidYear(), "Eeeeeeeeeeekkkkkkkkkkaaaaaaaaaaattttttttttteeeeeeeeeeerrrrrrrrrrriiiiiiiiiiiinnnnnnnnnnnaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", getValidCodcvccvv());
+        return new CardInfo(getApprovedCardNumber(), getValidMonth(), getValidYear(), "Tiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiimmmmmmmmmmmmmmmmmmmmmmmmmmmuuuuuuuuuuuuuuuuuuuuuuuuuuuurrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr", getValidCodcvccvv());
     }
 
     public static CardInfo getOnwerEmpty() {
