@@ -1,16 +1,15 @@
 package ru.netology.test;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
-import data.DataHelper;
-import data.SQLHelper;
-//import lombok.var;
+import ru.netology.data.DataHelper;
+import ru.netology.data.SQLHelper;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
-import page.Paymentpage;
-import page.Purchasepage;
+import ru.netology.page.PaymentPage;
+import ru.netology.page.Purchasepage;
 
 import static com.codeborne.selenide.Selenide.open;
-import static data.DataHelper.*;
+import static ru.netology.data.DataHelper.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class StatusTest {
@@ -32,7 +31,7 @@ public class StatusTest {
     }
 
     @Test
-    @DisplayName("Shuld successful card payment approved")
+    @DisplayName("Should successful card payment approved")
     void theCardPaymentMustBeApproved() {
         var cardinfo = new DataHelper.CardInfo(getApprovedCardNumber(), getValidMonth(), getValidYear(), getValidHolder(), getValidCodcvccvv());
         var purchasepage = new Purchasepage();
@@ -60,7 +59,7 @@ public class StatusTest {
     public void theCardIsNull() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
-        var form = new Paymentpage();
+        var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getCardNumberNull());
         form.declinedPayment();
     }
@@ -70,7 +69,7 @@ public class StatusTest {
     public void theCardLess16() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
-        var form = new Paymentpage();
+        var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getCardNumberLess());
         form.invalidCardFormat();
     }
@@ -80,7 +79,7 @@ public class StatusTest {
     public void theCardSymbol() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
-        var form = new Paymentpage();
+        var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getCardNumberNoValid());
         form.invalidCardFormat();
     }
@@ -90,7 +89,7 @@ public class StatusTest {
     public void theCardCyrillic() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
-        var form = new Paymentpage();
+        var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getCardNumberCyrillic());
         form.invalidCardFormat();
     }
@@ -100,7 +99,7 @@ public class StatusTest {
     public void theCardLatinalphabet() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
-        var form = new Paymentpage();
+        var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getCardNumberLatin());
         form.invalidCardFormat();
     }
@@ -110,7 +109,7 @@ public class StatusTest {
     public void theCardEmpty() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
-        var form = new Paymentpage();
+        var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getCardNumberEmpty());
         form.invalidCardFormat();
     }
@@ -120,7 +119,7 @@ public class StatusTest {
     public void monthMoreThan12() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
-        var form = new Paymentpage();
+        var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getMonth13());
         form.invalidCardExpirationDate();
     }
@@ -130,7 +129,7 @@ public class StatusTest {
     public void zeroMonth() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
-        var form = new Paymentpage();
+        var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getMonthNull());
         form.monthNotValid();
     }
@@ -140,7 +139,7 @@ public class StatusTest {
     public void simbolMonth() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
-        var form = new Paymentpage();
+        var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getMonthSymbol());
         form.monthNotValid();
     }
@@ -150,7 +149,7 @@ public class StatusTest {
     public void letterMonth() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
-        var form = new Paymentpage();
+        var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getMonthLetter());
         form.monthNotValid();
     }
@@ -160,7 +159,7 @@ public class StatusTest {
     public void unformattedMonth() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
-        var form = new Paymentpage();
+        var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getMonthUnformatted());
         form.monthNotValid();
     }
@@ -170,7 +169,7 @@ public class StatusTest {
     public void MonthTwoZeros() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
-        var form = new Paymentpage();
+        var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getMonthNullNull());
         form.monthNotValid();
     }
@@ -180,7 +179,7 @@ public class StatusTest {
     public void emptyMonth() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
-        var form = new Paymentpage();
+        var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getMonthempty());
         form.monthNotValid();
     }
@@ -190,7 +189,7 @@ public class StatusTest {
     public void lessThanCurrentOneYear() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
-        var form = new Paymentpage();
+        var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getYearLessThanTheCurrentOne());
         form.theСardExpired();
     }
@@ -200,7 +199,7 @@ public class StatusTest {
     public void yearLongerThanTheCurrentObn() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
-        var form = new Paymentpage();
+        var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getTheYearIs10YearsLongerThanTheCurrentOne());
         form.invalidCardExpirationDate();
     }
@@ -210,7 +209,7 @@ public class StatusTest {
     public void yearNotValid() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
-        var form = new Paymentpage();
+        var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getYearSimbol());
         form.yearNotValid();
     }
@@ -220,7 +219,7 @@ public class StatusTest {
     public void yearNotValidSimbol() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
-        var form = new Paymentpage();
+        var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getYearLetter());
         form.yearNotValid();
     }
@@ -230,7 +229,7 @@ public class StatusTest {
     public void yearNotValidOne() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
-        var form = new Paymentpage();
+        var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getYearOne());
         form.yearNotValid();
     }
@@ -240,7 +239,7 @@ public class StatusTest {
     public void yearNotValidEmpty() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
-        var form = new Paymentpage();
+        var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getYearEmpty());
         form.yearNotValid();
     }
@@ -250,7 +249,7 @@ public class StatusTest {
     public void thereMustBeAnErrorWhenEnteringTheOwnerInCyrillic() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
-        var form = new Paymentpage();
+        var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getOwnerCyrillic());
         form.ownerNotValid();
     }
@@ -260,7 +259,7 @@ public class StatusTest {
     public void InTheOwnerFieldTheCharacters() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
-        var form = new Paymentpage();
+        var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getOnwerSimbol());
         form.ownerNotValid();
     }
@@ -270,7 +269,7 @@ public class StatusTest {
     public void InTheOwnerFieldDigit() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
-        var form = new Paymentpage();
+        var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getOnwerFigure());
         form.ownerNotValid();
     }
@@ -280,7 +279,7 @@ public class StatusTest {
     public void EnteringOnlyOneLetterInTheOwnerField() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
-        var form = new Paymentpage();
+        var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getOnwerOneLetter());
         form.ownerNotValid();
     }
@@ -290,7 +289,7 @@ public class StatusTest {
     public void EnteringMoreThan100CharactersInTheOwnerField() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
-        var form = new Paymentpage();
+        var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getOnwerMoreThan100());
         form.ownerNotValid();
     }
@@ -300,7 +299,7 @@ public class StatusTest {
     public void TheOwnerFieldIsEmpty() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
-        var form = new Paymentpage();
+        var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getOnwerEmpty());
         form.ownerNotValid();
     }
@@ -310,8 +309,8 @@ public class StatusTest {
     public void InTheCVCCVVFieldTheCharacters() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
-        var form = new Paymentpage();
-        form.fillingOutTheForm(DataHelper.getCVCCVVSimbol());
+        var form = new PaymentPage();
+        form.fillingOutTheForm(DataHelper.getCVCCVVSymbol());
         form.cvcNotValid();
     }
 
@@ -320,7 +319,7 @@ public class StatusTest {
     public void InTheCVCCVVFieldTheLetters() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
-        var form = new Paymentpage();
+        var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getCVCCVVLetter());
         form.cvcNotValid();
     }
@@ -330,8 +329,8 @@ public class StatusTest {
     public void ThereIsOnlyOneDigitInTheCVCCVVField() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
-        var form = new Paymentpage();
-        form.fillingOutTheForm(DataHelper.getCVCCVVonedigit());
+        var form = new PaymentPage();
+        form.fillingOutTheForm(DataHelper.getCVCCVVOneDigit());
         form.cvcNotValid();
     }
 
@@ -340,8 +339,8 @@ public class StatusTest {
     public void ThereIsOnlyTwoDigitInTheCVCCVVField() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
-        var form = new Paymentpage();
-        form.fillingOutTheForm(DataHelper.getCVCCVVtwodigit());
+        var form = new PaymentPage();
+        form.fillingOutTheForm(DataHelper.getCVCCVVTwoDigit());
         form.cvcNotValid();
     }
 
@@ -350,8 +349,8 @@ public class StatusTest {
     public void TheCVCCVVFieldIsEmpty() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
-        var form = new Paymentpage();
-        form.fillingOutTheForm(DataHelper.getCVCCVVtwodigit());
+        var form = new PaymentPage();
+        form.fillingOutTheForm(DataHelper.getCVCCVVTwoDigit());
         form.cvcNotValid();
     }
 
@@ -360,7 +359,7 @@ public class StatusTest {
     public void TheCVCCVVEqual000() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
-        var form = new Paymentpage();
+        var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getCVCCVV000());
         form.cvcNotValid();
     }
@@ -371,7 +370,7 @@ public class StatusTest {
     void theCardPaymentEmpty() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();// купить
-        var form = new Paymentpage();
+        var form = new PaymentPage();
         form.emptyform();
     }
 }

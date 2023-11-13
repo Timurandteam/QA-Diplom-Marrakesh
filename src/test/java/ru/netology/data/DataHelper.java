@@ -154,7 +154,7 @@ public class DataHelper {
     }
 
     // заполнение CVC/CVV не валидными символами
-    public static CardInfo getCVCCVVSimbol() {
+    public static CardInfo getCVCCVVSymbol() {
         return new CardInfo(getApprovedCardNumber(), getValidMonth(), getValidYear(), getValidHolder(), "12%");
     }
 
@@ -162,11 +162,11 @@ public class DataHelper {
         return new CardInfo(getApprovedCardNumber(), getValidMonth(), getValidYear(), getValidHolder(), "12A");
     }
 
-    public static CardInfo getCVCCVVonedigit() {
+    public static CardInfo getCVCCVVOneDigit() {
         return new CardInfo(getApprovedCardNumber(), getValidMonth(), getValidYear(), getValidHolder(), "7");
     }
 
-    public static CardInfo getCVCCVVtwodigit() {
+    public static CardInfo getCVCCVVTwoDigit() {
         return new CardInfo(getApprovedCardNumber(), getValidMonth(), getValidYear(), getValidHolder(), "79");
     }
 
@@ -185,7 +185,7 @@ public class DataHelper {
         String month;
         String year;
         String holder;
-        String codcvccvv;
+        String codCvccvv;
     }
 
 }
