@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selectors.byCssSelector;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
-public class Paymentpage {
+public class PaymentPage {
 
     private SelenideElement cardnumber = $("[placeholder='0000 0000 0000 0000']");//$(byText("Номер карты")).parent().$(".input__control");
     private SelenideElement month = $(byText("Месяц")).parent().$(".input__control");
@@ -31,7 +31,7 @@ public class Paymentpage {
 
     //заполнение формы
     public void fillingOutTheForm(DataHelper.CardInfo cardInfo) {
-        cardnumber.setValue(cardInfo.getCardnumber());
+        cardnumber.setValue(cardInfo.getCardNumber());
         month.setValue(cardInfo.getMonth());
         year.setValue(cardInfo.getYear());
         owner.setValue(cardInfo.getHolder());
@@ -66,7 +66,7 @@ public class Paymentpage {
         expiredCardError.shouldBe(visible);
     }
 
-    public void theСardExpired() {
+    public void theCardExpired() {
         termCardError.shouldBe(visible);
     }
 
