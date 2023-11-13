@@ -50,7 +50,7 @@ public class PaymentPage {
     }
 
     // успешная оплата
-    public void paymentSuccessfull() {
+    public void paymentSuccessFull() {
         $(".notification_status_ok").shouldBe(Condition.visible, Duration.ofSeconds(30));
     }
 
