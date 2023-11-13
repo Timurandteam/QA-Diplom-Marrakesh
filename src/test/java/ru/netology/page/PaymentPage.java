@@ -35,13 +35,13 @@ public class PaymentPage {
         month.setValue(cardInfo.getMonth());
         year.setValue(cardInfo.getYear());
         owner.setValue(cardInfo.getHolder());
-        cvccvv.setValue(cardInfo.getCodcvccvv());
-        continuebutton.click();
+        cvccvv.setValue(cardInfo.getCodCvccvv());
+        continueButton.click();
     }
 
     // не заполненная форма
-    public void emptyform() {
-        continuebutton.click();
+    public void emptyForm() {
+        continueButton.click();
         cardNumberError.shouldBe(visible);
         monthError.shouldBe(visible);
         yearError.shouldBe(visible);
