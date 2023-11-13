@@ -180,7 +180,7 @@ public class StatusTest {
         var PurchasePage = new PurchasePage();
         PurchasePage.BuyCard();
         var form = new PaymentPage();
-        form.fillingOutTheForm(DataHelper.getMonthempty());
+        form.fillingOutTheForm(DataHelper.getMonthEmpty());
         form.monthNotValid();
     }
 
