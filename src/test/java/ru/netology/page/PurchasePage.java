@@ -18,7 +18,7 @@ public class PurchasePage {
         return new DashboardPage();
     }
 
-    public DashboardPage BuyCreditCard() {
+    public static DashboardPage BuyCreditCard() {
         BuyALoan.click(); //нажимаем кнопку Купить в кредит
         CreditCard.shouldBe(visible); // видим Кредит по данным карты
         return new DashboardPage();
