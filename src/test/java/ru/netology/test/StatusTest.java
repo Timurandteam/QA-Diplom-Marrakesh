@@ -38,7 +38,7 @@ public class StatusTest {
         purchasepage.BuyCard();// купить
         var form = new PaymentPage();
         form.fillingOutTheForm(cardinfo);
-        form.paymentSuccessfull();
+        form.paymentSuccessFull();
         assertEquals("APPROVED", SQLHelper.getPaymentStatus());
     }
 
@@ -96,7 +96,7 @@ public class StatusTest {
 
     // в номере карты буквы кириллицы
     @Test
-    public void theCardLatinalphabet() {
+    public void theCardLatinAlphabet() {
         var PurchasePage = new PurchasePage();
         PurchasePage.BuyCard();
         var form = new PaymentPage();
