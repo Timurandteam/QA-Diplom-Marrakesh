@@ -1,16 +1,16 @@
 package ru.netology.test;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
-import ru.netology.data.DataHelper;
-import ru.netology.data.SQLHelper;
-
+import data.DataHelper;
+import data.SQLHelper;
+//import lombok.var;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
-import ru.netology.page.Paymentpage;
-import ru.netology.page.Purchasepage;
+import page.Paymentpage;
+import page.Purchasepage;
 
 import static com.codeborne.selenide.Selenide.open;
-import static ru.netology.data.DataHelper.*;
+import static data.DataHelper.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class StatusTest {
@@ -32,12 +32,12 @@ public class StatusTest {
     }
 
     @Test
-    @DisplayName("Should successful card payment approved")
+    @DisplayName("Shuld successful card payment approved")
     void theCardPaymentMustBeApproved() {
         var cardinfo = new DataHelper.CardInfo(getApprovedCardNumber(), getValidMonth(), getValidYear(), getValidHolder(), getValidCodcvccvv());
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();// купить
-        var form = new Paymentpage();
+        var form = new PaymentPage();
         form.fillingOutTheForm(cardinfo);
         form.paymentSuccessfull();
         assertEquals("APPROVED", SQLHelper.getPaymentStatus());
@@ -49,7 +49,7 @@ public class StatusTest {
         var cardinfo = new DataHelper.CardInfo(getDeclinedCardNumber(), getValidMonth(), getValidYear(), getValidHolder(), getValidCodcvccvv());
         var purchasepage = new Purchasepage();
         purchasepage.BuyCreditCard();// купить в кредит
-        var form = new Paymentpage();
+        var form = new PaymentPage();
         form.fillingOutTheForm(cardinfo);
         form.declinedPayment();
         assertEquals("DECLINED", SQLHelper.getPaymentStatus());
@@ -137,7 +137,7 @@ public class StatusTest {
 
     // в месяце символ
     @Test
-    public void symbolMonth() {
+    public void simbolMonth() {
         var purchasepage = new Purchasepage();
         purchasepage.BuyCard();
         var form = new Paymentpage();
@@ -192,7 +192,7 @@ public class StatusTest {
         purchasepage.BuyCard();
         var form = new Paymentpage();
         form.fillingOutTheForm(DataHelper.getYearLessThanTheCurrentOne());
-        form.theCardExpired();
+        form.theСardExpired();
     }
 
     // год больше текущего на 10 лет

@@ -13,12 +13,12 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class PaymentPage {
 
-    private SelenideElement cardnumber = $("[placeholder='0000 0000 0000 0000']");//$(byText("Номер карты")).parent().$(".input__control");
+    private SelenideElement cardNumber = $("[placeholder='0000 0000 0000 0000']");//$(byText("Номер карты")).parent().$(".input__control");
     private SelenideElement month = $(byText("Месяц")).parent().$(".input__control");
     private SelenideElement year = $(byText("Год")).parent().$(".input__control");
     private SelenideElement owner = $(byText("Владелец")).parent().$(".input__control");
     private SelenideElement cvccvv = $(byText("CVC/CVV")).parent().$(".input__control");
-    private SelenideElement continuebutton = $(byText("Продолжить"));
+    private SelenideElement continueButton = $(byText("Продолжить"));
 
     private SelenideElement formatCardError = $(byText("Неверный формат")).parent().$(".input__sub");
     private SelenideElement cardNumberError = $(byText("Номер карты")).parent().$(".input__sub");
@@ -31,7 +31,7 @@ public class PaymentPage {
 
     //заполнение формы
     public void fillingOutTheForm(DataHelper.CardInfo cardInfo) {
-        cardnumber.setValue(cardInfo.getCardNumber());
+        cardNumber.setValue(cardInfo.getCardNumber());
         month.setValue(cardInfo.getMonth());
         year.setValue(cardInfo.getYear());
         owner.setValue(cardInfo.getHolder());
