@@ -133,7 +133,7 @@ public class DataHelper {
         return new CardInfo(getApprovedCardNumber(), getValidMonth(), getValidYear(), "ТИМУР", getValidCodCvccvv());
     }
 
-    public static CardInfo getOnwerSimbol() {
+    public static CardInfo getOnwerSymbol() {
         return new CardInfo(getApprovedCardNumber(), getValidMonth(), getValidYear(), "TIM$UR", getValidCodCvccvv());
     }
 

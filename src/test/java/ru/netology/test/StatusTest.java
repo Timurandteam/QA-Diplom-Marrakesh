@@ -191,7 +191,7 @@ public class StatusTest {
         PurchasePage.BuyCard();
         var form = new PaymentPage();
         form.fillingOutTheForm(DataHelper.getYearLessThanTheCurrentOne());
-        form.theСardExpired();
+        form.theCardExpired();
     }
 
     // год больше текущего на 10 лет
